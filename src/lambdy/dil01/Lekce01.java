@@ -14,8 +14,8 @@ public class Lekce01 {
         runnablePrinter();
         spojeni();
         kalkulacka();
-        // porovnaniDelek();
-        // formatovani();
+        porovnaniDelek();
+        formatovani();
     }
 
     // Spolecna ukazka: podle pokynu v prezentaci.
@@ -67,6 +67,8 @@ public class Lekce01 {
         IO.println(subtract.compute(-2, 0));
         IO.println(multiply.compute(-2, 0));
 
+        IO.println("");
+
 
 
 
@@ -74,11 +76,24 @@ public class Lekce01 {
 
     // Uloha 1.4. Znaménka výsledků jsou záporné, záporné, nula.
     static void porovnaniDelek() {
-        // TODO 1.4: Porovnání délek. Zde pis sve reseni.
+        Comparator<String> cmp = (a, b) -> Integer.compare(a.length(), b.length());
+        System.out.println(cmp.compare("pes", "kocka"));
+        System.out.println(cmp.compare("", "a"));
+        System.out.println(cmp.compare("pes", "les"));
+
+        IO.println("");
     }
 
     // Uloha 1.5. Pro Tom: Hello, Tom / WELCOME, TOM / User: Tom. Pro prázdné jméno zůstane jen prefix.
     static void formatovani() {
-        // TODO 1.5: MessageFormatter. Zde pis sve reseni.
+        MessageFormatter hello = (a) -> ("Hello " + a);
+        MessageFormatter welcome = (a) -> ("WELCOME " + a.toUpperCase());
+        MessageFormatter user = (a) -> ("User: " + a);
+
+        IO.println(hello.format("Tom"));
+        IO.println(welcome.format("Tom"));
+        IO.println(user.format("Tom"));
+
+
     }
 }
