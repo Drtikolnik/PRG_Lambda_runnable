@@ -12,7 +12,7 @@ public class Lekce02 {
         // Prvni spusteni je bez vypisu; zatim neni zapnuta zadna uloha.
         ukazkaSoucet();
         ukazkaSlova();
-        // ukazkaDuplicity();
+        ukazkaDuplicity();
         // delkySlov();
     }
 
@@ -51,12 +51,36 @@ public class Lekce02 {
     // Spolecna ukazka: podle pokynu v prezentaci.
     static void ukazkaDuplicity() {
         List<Integer> numbers = List.of(1, 2, 2, 3, 1);
-        // TODO ukazka: postupuj podle pracovniho snimku.
+        List<Integer> unique = new ArrayList<>();
+
+        for (Integer number : numbers) {
+            if(!unique.contains(number)){
+                unique.add(number);
+            }
+        }
+        System.out.println(unique);
+
+
+        List<Integer> uniqueStream = numbers.stream()
+                .distinct()
+                .toList(); // děláeměnný list, nedá se přidávat do něj potom
+        System.out.println(uniqueStream);
+        //uniqueStream.add(4); //hodi chybu
+
     }
 
     // Uloha 2.1. Připravený vstup dá [4, 6], prázdný vstup [].
     static void delkySlov() {
         List<String> input = List.of("Ahoj", "", "Afrika", "Java", "Ahoj");
-        // TODO 2.1: Délky vybraných slov. Zde pis sve reseni.
+        List<Integer> delky = new ArrayList<>();
+
+
+        List<Integer> uniqueStream = input.stream()
+                .filter(word -> word.startsWith("A"))
+                .distinct()
+                .map(word -> word.length())
+                .toList();
+        System.out.println(uniqueStream);
+
     }
 }

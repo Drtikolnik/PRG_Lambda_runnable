@@ -1,4 +1,4 @@
-package lambdy.dil03;
+package lambdy.dil03_funkcinalni_rozhrani;
 
 @FunctionalInterface
 public interface Calculator {
